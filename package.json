@@ -1,0 +1,19 @@
+{
+  "name": "gogram",
+  "version": "1.0.0",
+  "description": "GoGram a clone of instagram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hrushikesh N",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "express": "^4.16.4",
+    "joi": "^13.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.4",
+    "pug": "^2.0.3"
+  }
+}

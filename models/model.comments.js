@@ -11,4 +11,4 @@ const commentSchema = new mongoose.Schema({
 
 const CommentModel = mongoose.model('comment', commentSchema);
 
-module.exports = LikeModel;
+module.exports = CommentModel;

@@ -12,7 +12,7 @@ const environment = config.environment;
 const port = config.port;
 
 //DB Connection
-mongoose.connect('mongodb://localhost/gogram', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/gogram', { useNewUrlParser: true, useCreateIndex: true })
     .then((res) => console.log('Connected to data base...'))
     .catch(err => console.log('Error while establishing connection to data base', err));
 
@@ -27,11 +27,11 @@ app.use('/', homeRouter);
 app.use('/api/user', usersRouter);
 
 //App settings
-app.set('view engine', 'pug'); //setting view engine for the app i.e. pug
-app.set('views', 'public'); //setting views file path i.e. public
+app.set('view engine', 'pug'); //setting view engine as pug for the app
+app.set('views', 'public'); //setting views file path to public
 
 //Starting server
-app.listen(port, () => debug(`Server listening on port ${port}...`));
+app.listen(port, () => console.log(`Server listening on port ${port}...`));
 
 
 

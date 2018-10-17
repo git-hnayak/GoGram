@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const userSchems = new mongoose.Schema({
-    userName: { type: String, required: true, unique: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     createdDate: { type: Date, default: Date.now() },
-    imagePath: { type: String, required: true },
+    imagePath: { type: String },
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });

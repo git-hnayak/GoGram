@@ -6,7 +6,8 @@ const userSchems = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     createdDate: { type: Date, default: Date.now() },
-    imagePath: { type: String },
+    imagePath: String,
+    imageUrl: String,
     resetPasswordToken: String,
     resetPasswordExpires: Date
 });

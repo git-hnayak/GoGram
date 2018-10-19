@@ -8,7 +8,6 @@ const homeRouter = require('./routers/router.home');
 const usersRouter = require('./routers/router.users');
 
 const app = express();
-const environment = config.environment;
 const port = config.port;
 
 //DB Connection
@@ -20,7 +19,7 @@ mongoose.connect('mongodb://localhost/gogram', { useNewUrlParser: true, useCreat
 app.use(express.json()); //for parsing JSON request body
 app.use(express.urlencoded({ extended: true })); //for parsing url encoded request
 app.use(express.static('public')); //for serving static files
-app.use(express.static('uploads'));
+app.use(express.static('uploads/profile_images'));
 
 //Routes
 app.use('/', homeRouter);

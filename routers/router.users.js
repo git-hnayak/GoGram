@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
             if (err) return callback(err);
             callback(null, raw.toString('hex') + path.extname(file.originalname));
         });
-        // callback(null, Date.now() + '_' + file.originalname)
     }
 });
 const upload = multer({storage: storage});

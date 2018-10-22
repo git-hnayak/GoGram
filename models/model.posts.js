@@ -5,6 +5,7 @@ const ObjectId = Schema.Types.ObjectId;
 const postSchema = new mongoose.Schema({
     description: String,
     imagePath: String,
+    imageUrl: String,
     owner: { type: ObjectId, ref: 'user' },
     createdDate: { type: Date, default: Date.now() },
     totalLikes: { type: Number, default: 0 },

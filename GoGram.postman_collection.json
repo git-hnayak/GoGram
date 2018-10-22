@@ -1,0 +1,334 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GoGram",
+		"_postman_id": "695ea5c1-b564-0a03-20ee-7e82df8ab436",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4005/api/user/signup",
+			"request": {
+				"url": "http://localhost:4005/api/user/signup",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profileImage",
+							"value": "",
+							"description": "",
+							"type": "file"
+						},
+						{
+							"key": "firstName",
+							"value": "Kumar Kartik",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Nahak",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hnahak@hotm.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password123",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Request Type: Form Data\n\nsample payload:\n\"profileImage\": file\n\"firstName\": \"Hrushikesh\"\n\"lastName\": \"Nahak\"\n\"email\": \"hkahak@email.com\"\npassword: \"Password1234\""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user/login",
+			"request": {
+				"url": "http://localhost:4005/api/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"hnahak@hotm.com\",\n\t\"password\" : \"Password123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user",
+			"request": {
+				"url": "http://localhost:4005/api/user",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user",
+			"request": {
+				"url": "http://localhost:4005/api/user",
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Kumar\",\n\t\"lastName\": \"Nhaka\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user/forgot",
+			"request": {
+				"url": "http://localhost:4005/api/user/forgot",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"hnahak@hotm.com\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user/reset/f173500351baaf89963a7822645efba349b73f1f",
+			"request": {
+				"url": "http://localhost:4005/api/user/reset/f173500351baaf89963a7822645efba349b73f1f",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\": \"Password4567\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user/logout",
+			"request": {
+				"url": "http://localhost:4005/api/user/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/feed",
+			"request": {
+				"url": "http://localhost:4005/api/feed",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "postImage",
+							"description": "",
+							"type": "file",
+							"src": "Screenshot (6).png"
+						},
+						{
+							"key": "description",
+							"value": "Test Post description",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/feed?pageNo=1&pageSize=5",
+			"request": {
+				"url": {
+					"raw": "http://localhost:4005/api/feed?pageNo=1&pageSize=20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4005",
+					"path": [
+						"api",
+						"feed"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "20",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2RhMDdhNGJhMjkzMGRjMDBlYTAwYyIsImlhdCI6MTU0MDIwOTEyNCwiZXhwIjoxNTQwMjk1NTI0fQ.9F3Tn0V4nSzjP_UqpuTfiNKeeDEWuDtdLVngLzYugQk",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/feed/5bcd95d3e0284c0fb4ad2c02",
+			"request": {
+				"url": "http://localhost:4005/api/feed/5bcd95d3e0284c0fb4ad2c02",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/like/5bcd95d3e0284c0fb4ad2c02",
+			"request": {
+				"url": "http://localhost:4005/api/like/5bcdc7812973972b207a582f",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2RhMDdhNGJhMjkzMGRjMDBlYTAwYyIsImlhdCI6MTU0MDIwOTEyNCwiZXhwIjoxNTQwMjk1NTI0fQ.9F3Tn0V4nSzjP_UqpuTfiNKeeDEWuDtdLVngLzYugQk",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/comment",
+			"request": {
+				"url": "http://localhost:4005/api/comment",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2Q4ZDUyZTAyODRjMGZiNGFkMmMwMSIsImlhdCI6MTU0MDE5ODMzMiwiZXhwIjoxNTQwMjg0NzMyfQ.r3Rw3tflUk45LDRVg8Iy10LPNqI-FnzHx81VWxtZTGo",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"postid\": \"5bcdc7902973972b207a5830\",\n\t\"comments\": \"Test Comments\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4005/api/user/dailystats",
+			"request": {
+				"url": "http://localhost:4005/api/user/dailystats",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjViY2RhMDdhNGJhMjkzMGRjMDBlYTAwYyIsImlhdCI6MTU0MDIwOTEyNCwiZXhwIjoxNTQwMjk1NTI0fQ.9F3Tn0V4nSzjP_UqpuTfiNKeeDEWuDtdLVngLzYugQk",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

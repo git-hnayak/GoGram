@@ -19,18 +19,6 @@ const validatePostCreation = function(req, res, next) {
     }
 }
 
-const validateLike = function(req, res, next) {
-    const likeSchema = {
-        postid: Joi.string().required().label('Post Id'),
-        likeFlag: Joi.boolean().required().label('Like Dislike flag')
-    }
-
-    const { error } = Joi.validate(req.body, likeSchema);
-    if (error) return res.status(400).send(error.details[0].message);
-    next();
-}
-
 module.exports = {
-    validatePostCreation: validatePostCreation,
-    validateLike: validateLike
+    validatePostCreation: validatePostCreation
 };

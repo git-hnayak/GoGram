@@ -7,6 +7,7 @@ const config = require('./config');
 const homeRouter = require('./routers/router.home');
 const usersRouter = require('./routers/router.users');
 const postRouter = require('./routers/router.posts');
+const likeRouter = require('./routers/router.likes');
 
 const app = express();
 const port = config.port;
@@ -27,6 +28,7 @@ app.use(express.static('uploads/post_images')); //for serving post images
 app.use('/', homeRouter);
 app.use('/api/user', usersRouter);
 app.use('/api/feed', postRouter);
+app.use('/api/like', likeRouter);
 
 //App settings
 app.set('view engine', 'pug'); //setting view engine as pug for the app

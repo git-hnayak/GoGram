@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
             if (err) return callback(err);
             callback(null, raw.toString('hex') + path.extname(file.originalname));
         });
-        // callback(null, Date.now() + '_' + file.originalname)
     }
 });
 const upload = multer({storage: storage});
@@ -81,6 +80,17 @@ router.post('/reset/:token', validateUser.validateResetPassword, (req, res) => {
     userUtil.resetPassword(req)
         .then((result) => {
             res.status(200).send({message: 'Password reset successfully'});
+        }).catch(err => {
+            console.log(err);
+            res.status(400).send(err)
+        })
+});
+
+//Reset Password
+router.get('/dailystats', verifyToken, (req, res) => {
+    userUtil.getUserStats(req)
+        .then((result) => {
+            res.status(200).send(result);
         }).catch(err => {
             console.log(err);
             res.status(400).send(err)

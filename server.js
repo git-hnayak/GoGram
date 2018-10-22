@@ -6,6 +6,9 @@ const config = require('./config');
 //Router modules
 const homeRouter = require('./routers/router.home');
 const usersRouter = require('./routers/router.users');
+const postRouter = require('./routers/router.posts');
+const likeRouter = require('./routers/router.likes');
+const commentRouter = require('./routers/router.comments');
 
 const app = express();
 const port = config.port;
@@ -19,11 +22,15 @@ mongoose.connect('mongodb://localhost/gogram', { useNewUrlParser: true, useCreat
 app.use(express.json()); //for parsing JSON request body
 app.use(express.urlencoded({ extended: true })); //for parsing url encoded request
 app.use(express.static('public')); //for serving static files
-app.use(express.static('uploads/profile_images'));
+app.use(express.static('uploads/profile_images')); //for serving profile images
+app.use(express.static('uploads/post_images')); //for serving post images
 
 //Routes
 app.use('/', homeRouter);
 app.use('/api/user', usersRouter);
+app.use('/api/feed', postRouter);
+app.use('/api/like', likeRouter);
+app.use('/api/comment', commentRouter);
 
 //App settings
 app.set('view engine', 'pug'); //setting view engine as pug for the app

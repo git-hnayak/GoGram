@@ -37,12 +37,30 @@ const getAllPublicPost = (req) => {
     })
 }
 
+const checkPost = (postid, owner) => {
+    return new Promise((resolve, reject) => {
+        PostModel.countDocuments({ _id: postid, owner: owner })
+        .then(count => {
+            console.log('Post Count: ', count);
+            if (count != 0 ) {
+                resolve();
+            } else {
+                reject('No post to delete');
+            }
+        }).catch((err) => {
+            reject(err)
+        });
+    })
+}
+
 const deletePost = (req) => {
     const postId = req.params.postid;
     return new Promise((resolve, reject) => {
-        PostModel.remove({ _id: postId })
-        .then(result => resolve(result))
-        .catch(err => reject(err))
+        checkPost(postId, req.userid).then((result) => {
+            PostModel.remove({ _id: postId, owner: req.userid })
+            .then(result => resolve(result))
+            .catch(err => reject(err))
+        }).catch(err => reject(err))
     })
 }
 

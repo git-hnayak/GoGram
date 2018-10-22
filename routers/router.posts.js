@@ -44,10 +44,11 @@ router.get('/', verifyToken, (req, res) => {
         });
 });
 
-//Delete a post
+//Delete User's own post
 router.delete('/:postid', verifyToken, (req, res) => {
     postUtil.deletePost(req)
         .then((result) => {
+            console.log('Delete Post result', result);
             res.status(200).send({message: 'Your post has been deleted successfully'});
         }).catch((err) => {
             console.log('Error: ', err);

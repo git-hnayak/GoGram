@@ -19,6 +19,21 @@ const validatePostCreation = function(req, res, next) {
     }
 }
 
+const validateCommentCreation = function(req, res, next) {
+    const commentSchema = {
+        postid: Joi.string().required().label('Post Id'),
+        comments: Joi.string().required().label('Post Comment')
+    }
+
+    const { error } = Joi.validate(req.body, commentSchema);
+    if (error) {
+        return res.status(400).send(error.details[0].message);
+    } else {
+        next();
+    }
+}
+
 module.exports = {
-    validatePostCreation: validatePostCreation
+    validatePostCreation: validatePostCreation,
+    validateCommentCreation: validateCommentCreation
 };

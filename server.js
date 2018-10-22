@@ -8,6 +8,7 @@ const homeRouter = require('./routers/router.home');
 const usersRouter = require('./routers/router.users');
 const postRouter = require('./routers/router.posts');
 const likeRouter = require('./routers/router.likes');
+const commentRouter = require('./routers/router.comments');
 
 const app = express();
 const port = config.port;
@@ -29,6 +30,7 @@ app.use('/', homeRouter);
 app.use('/api/user', usersRouter);
 app.use('/api/feed', postRouter);
 app.use('/api/like', likeRouter);
+app.use('/api/comment', commentRouter);
 
 //App settings
 app.set('view engine', 'pug'); //setting view engine as pug for the app

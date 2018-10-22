@@ -1,9 +1,14 @@
 const UserModel = require('../models/model.users');
+const PostModel = require('../models/model.posts');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const saltRound = 12;
 const config = require('../config');
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const ObjectId = mongoose.Types.ObjectId;
 
 const findAllUsers = () => {
     return new Promise((resolve, reject) => {
@@ -235,6 +240,63 @@ const resetPassword = (req) => {
     })
 }
 
+const userTotalLikesComments = (userid) => {
+    return new Promise((resolve, reject) => {
+        PostModel.aggregate([
+            {
+                $match: { 
+                    owner: ObjectId(userid) 
+                }
+            },
+            {
+                $group: {
+                    _id: "$owner",
+                    total_likes: { $sum: "$totalLikes" },
+                    total_comments: { $sum: "$totalComments" }
+                }
+            }
+        ]).then(result => {
+            resolve(result);
+        })
+    })
+}
+
+const userTotalPosts = (userid) => {
+    return new Promise((resolve, reject) => {
+        PostModel.countDocuments({ owner: userid})
+        .then(res => resolve(res))
+        .catch(err => reject(err))
+    })
+}
+
+const getUserStats = (req) => {
+    return new Promise((resolve, reject) => {
+        const userid = req.userid;
+        const userstats = {
+            totalLikes: 0,
+            totalComments: 0,
+            totalPosts: 0
+        };
+        userTotalLikesComments(userid)
+        .then((result) => {
+            // console.log(result);
+            if (result && result.length) {
+                userstats.totalLikes = result[0].total_likes;
+                userstats.totalComments = result[0].total_comments;   
+            }
+            return userTotalPosts(userid)
+        })
+        .then(postcount => {
+            userstats.totalPosts = postcount;
+            resolve(userstats)
+        })
+        .catch(err => {
+            reject(err)
+        })
+        
+    })
+}
+
 module.exports = {
     findAllUsers: findAllUsers,
     createUser:  createUser,
@@ -242,5 +304,6 @@ module.exports = {
     getUserDetails: getUserDetails,
     updateUser: updateUser,
     forgotUser: forgotUser,
-    resetPassword: resetPassword
+    resetPassword: resetPassword,
+    getUserStats: getUserStats
 }

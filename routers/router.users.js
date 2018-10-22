@@ -86,4 +86,15 @@ router.post('/reset/:token', validateUser.validateResetPassword, (req, res) => {
         })
 });
 
+//Reset Password
+router.get('/dailystats', verifyToken, (req, res) => {
+    userUtil.getUserStats(req)
+        .then((result) => {
+            res.status(200).send(result);
+        }).catch(err => {
+            console.log(err);
+            res.status(400).send(err)
+        })
+});
+
 module.exports = router;

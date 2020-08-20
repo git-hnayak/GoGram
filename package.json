@@ -9,7 +9,7 @@
   "author": "Hrushikesh N",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^5.0.0",
     "crypto": "^1.0.1",
     "express": "^4.16.4",
     "joi": "^13.6.0",
